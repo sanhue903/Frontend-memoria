@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.table {
+    background-color: rgb(255, 255, 255);
+    flex-direction: column;
+    display: flex;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.table th {
+    padding: 1rem;
+    text-align: center;
+}
+
+.table td {
+    padding: 1rem;
+    text-align: center;
+    font-size: small;
+}
+
+.table div {
+    display: flex;
+    justify-content: center;
+}
+
+.chaptersBar{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    width: 80%;
+    margin: auto;
+}
+
+.chaptersBar button{
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: #8884d8;
+    border: none;
+    cursor: pointer;
+    font-size: medium;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: small;
+}
+
+.chaptersBar button:hover{
+    background-color: #6661fb;
+    transition: background-color 0.4s ease;
+}
+
+.custom-legend{
+    display: flex;
+    margin: auto;
+    justify-content: space-evenly;
+    width: 40%;
+}
+
+.graphic{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}

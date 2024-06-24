@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+  color: #333;
+  background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.titulo{
+  text-align: center;
+  font-size: 2em;
+  color: rgb(145, 145, 145);
+  margin-top: 160px;
+}
+
+.login-form {
+  width: 300px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 6px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 10px 5px 5px 0px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.login-form h2{
+  margin-bottom: 30px;
+  margin-top: 0;
+  color: rgb(145, 145, 145);
+}
+
+
+input{
+  padding: 10px;
+  border-color: white;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  background-color: #ffecfc;
+  border: none;
+}
+
+.login-form button {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #afd2f3;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+  border: none;
+}
