@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
+import config from '../../config';
 
 function Login() {
   const navigate = useNavigate();
@@ -8,7 +9,7 @@ function Login() {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    fetch('/auth/login', {
+    fetch(`${config.APIBaseURL}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

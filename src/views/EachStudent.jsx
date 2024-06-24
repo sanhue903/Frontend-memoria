@@ -4,6 +4,7 @@ import '../css/Students.css';
 import EachStudentsGraphics from '../components/EachStudentsGraphics';
 import EachStudentTable from '../components/EachStudentTable';
 import Logout from '../components/Logout';
+import config from '../../config';
 
 function EachStudent() {
   const token = localStorage.getItem('token');
@@ -15,7 +16,7 @@ function EachStudent() {
   useEffect(() => {
     const fetchStudentScores = async () => {
       try {
-        const response = await fetch(`/apps/BOTIQI/students/${studentId}/scores`, {
+        const response = await fetch(`${config.APIBaseURL}/apps/BOTIQI/students/${studentId}/scores`, {
           method: 'GET',
           headers: {
             'Authorization': 'Bearer ' + token,
@@ -35,7 +36,7 @@ function EachStudent() {
   useEffect(() => {
     const fetchChapters = async () => {
       try {
-        const response = await fetch(`/apps/BOTIQI`, {
+        const response = await fetch(`${config.APIBaseURL}/apps/BOTIQI`, {
           method: 'GET',
           headers: {
             'Authorization': 'Bearer ' + token,
@@ -55,7 +56,7 @@ function EachStudent() {
   useEffect(() => {
     const fetchStudentName = async () => {
       try {
-        const response = await fetch(`/apps/BOTIQI/students`, {
+        const response = await fetch(`${config.APIBaseURL}/apps/BOTIQI/students`, {
           method: 'GET',
           headers: {
             'Authorization': 'Bearer ' + token,

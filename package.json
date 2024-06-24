@@ -1,8 +1,8 @@
 {
-  "name": "aulas",
+  "name": "botiquin-web",
   "version": "0.1.0",
+  "description": "dashboard de El Botiquin de las Emociones",
   "private": true,
-  "proxy": "goldfish-app-mahk3.ondigitalocean.app",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

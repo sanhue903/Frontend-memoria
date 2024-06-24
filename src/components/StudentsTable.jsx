@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import config from '../../config';
 
 function StudentsTable() {
   const token = localStorage.getItem('token');
@@ -11,7 +12,7 @@ function StudentsTable() {
 
   useEffect(() => {
     const fetchTotalStudents = () => {
-      return fetch('/apps/BOTIQI/students', {
+      return fetch(`${config.APIBaseURL}/apps/BOTIQI/students`, {
         method: 'GET',
         headers: {
           'Authorization': 'Bearer ' + token,
@@ -31,7 +32,7 @@ function StudentsTable() {
     };
 
     const fetchStudents = (limit, page) => {
-      return fetch(`/apps/BOTIQI/students?limit=${limit}&page=${page}`, {
+      return fetch(`${config.APIBaseURL}/apps/BOTIQI/students?limit=${limit}&page=${page}`, {
         method: 'GET',
         headers: {
           'Authorization': 'Bearer ' + token,

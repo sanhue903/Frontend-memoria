@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+import config from '../../config';
 
 const StudentsGraphic = () => {
     const token = localStorage.getItem('token');
@@ -10,7 +11,7 @@ const StudentsGraphic = () => {
     useEffect(() => {
         const fetchChapters = async () => {
             try {
-                const response = await fetch('/apps/BOTIQI', {
+                const response = await fetch(`${config.APIBaseURL}/apps/BOTIQI`, {
                     headers: {
                         'Authorization': 'Bearer ' + token,
                     }
@@ -28,7 +29,7 @@ const StudentsGraphic = () => {
 
     const fetchScores = async (chapterId) => {
         try {
-            const response = await fetch(`/apps/BOTIQI/students/scores?chapter=${chapterId}`, {
+            const response = await fetch(`${config.APIBaseURL}/apps/BOTIQI/students/scores?chapter=${chapterId}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': 'Bearer ' + token,
