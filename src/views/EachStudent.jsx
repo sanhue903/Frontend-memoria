@@ -4,7 +4,7 @@ import '../css/Students.css';
 import EachStudentsGraphics from '../components/EachStudentsGraphics';
 import EachStudentTable from '../components/EachStudentTable';
 import Logout from '../components/Logout';
-import config from '../../config';
+import config from '../config';
 
 function EachStudent() {
   const token = localStorage.getItem('token');

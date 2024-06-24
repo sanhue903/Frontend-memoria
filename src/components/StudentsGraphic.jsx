@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
-import config from '../../config';
+import config from '../config';
 
 const StudentsGraphic = () => {
     const token = localStorage.getItem('token');
