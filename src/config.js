@@ -1,5 +1,5 @@
 const config = {
-    APIBaseURL: process.env.API_BASE_URL
+    APIBaseURL: "https://orca-app-rh2dv.ondigitalocean.app/api"
 };
 
 export default config;

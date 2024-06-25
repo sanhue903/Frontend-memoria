@@ -9,7 +9,7 @@ function Login() {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    fetch(`https://orca-app-rh2dv.ondigitalocean.app/api/auth/login`, {
+    fetch(`${config.APIBaseURL}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
