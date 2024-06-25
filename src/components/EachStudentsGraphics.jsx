@@ -29,7 +29,7 @@ function EachStudentsGraphics({ scores, chapters }) {
           }
           questionTotalCounts[questionLabel]++;
           questionTime[questionLabel] += score.seconds;
-          questionAttempts[questionLabel] += score.attempt;
+          questionAttempts[questionLabel] += 1;
           if (score.is_correct) {
             questionCorrectStatus[questionLabel] = true;
           }
@@ -82,6 +82,8 @@ function EachStudentsGraphics({ scores, chapters }) {
   };
 
   return (
+
+
     <div>
       <h3>Tiempo Promedio por Pregunta</h3>
       <div className='graphic'>

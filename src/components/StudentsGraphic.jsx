@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Label } from 'recharts';
 import config from '../config';
 
 const StudentsGraphic = () => {
@@ -7,6 +7,7 @@ const StudentsGraphic = () => {
     const [chapter, setChapter] = useState(null);
     const [data, setData] = useState([]);
     const [chapters, setChapters] = useState([]);
+    const [description, setDescription] = useState('');
 
     useEffect(() => {
         const fetchChapters = async () => {
@@ -18,6 +19,7 @@ const StudentsGraphic = () => {
                 });
                 const result = await response.json();
                 setChapters(result.chapters);
+                handleChapterChange(result.chapters[0]);
             } catch (error) {
                 console.error('Error fetching chapters:', error);
                 setChapters([]);
@@ -83,13 +85,14 @@ const StudentsGraphic = () => {
 
     const handleChapterChange = (chap) => {
         setChapter(chap);
+        setDescription(`Capítulo ${chap.number}: ${chap.name}`)
     };
 
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {
             return (
                 <div className="custom-tooltip">
-                    <p>{`Porcentaje de aciertos: ${payload[0].value}%`}</p>
+                    <p>{`${payload[0].value}%`}</p>
                 </div>
             );
         }
@@ -99,14 +102,22 @@ const StudentsGraphic = () => {
 
     return (
         <div>
+            <div className="title">
+            <h3>{description}</h3>
+            </div>
             <div className='graphic'>
                 <BarChart width={800} height={300} data={data}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="question" />
-                    <YAxis />
+                    <YAxis>
+      <Label value="Porcentaje(%)" angle={-90} position='insideLeft' style={{ textAnchor: 'middle' }} />
+    </YAxis>
                     <Tooltip content={<CustomTooltip />} />
                     <Bar dataKey='correct' fill='#8884d8' />
                 </BarChart>
+            </div>
+            <div className="description">
+                <p>Porcentaje de acierto por pregunta</p>
             </div>
             <div className="chaptersBar">
                 {chapters.map(chap => (
