@@ -1,5 +1,5 @@
 const config = {
-    APIBaseURL: "https://orca-app-rh2dv.ondigitalocean.app/api"
+    APIBaseURL: "https://whale-app-idf72.ondigitalocean.app/api"
 };
 
 export default config;
