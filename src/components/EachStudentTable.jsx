@@ -1,5 +1,7 @@
 import React from 'react';
 import '../css/Students.css';
+import x from '../assets/images/x.png';
+import tick from '../assets/images/tick.png';
 
 function EachStudentTable({ scores, chapters }) {
   return (
@@ -24,7 +26,7 @@ function EachStudentTable({ scores, chapters }) {
               const questionInfo = chapterInfo ? chapterInfo.questions.find(q => q.id === score.question_id) : null;
               const questionText = questionInfo ? questionInfo.text : 'Pregunta desconocida';
 
-              return (
+                return (
                 <tr key={index}>
                   <td>{score.session}</td>
                   <td>{chapterName}</td>
@@ -32,9 +34,15 @@ function EachStudentTable({ scores, chapters }) {
                   <td>{score.answer}</td>
                   <td>{score.seconds}</td>
                   <td>{score.attempt}</td>
-                  <td>{score.is_correct ? 'Sí' : 'No'}</td>
+                  <td>
+                  {score.is_correct ? (
+                    <img src={tick} alt="Sí" style={{ width: '40px', height: '40px' }} />
+                  ) : (
+                    <img src={x} alt="No" style={{ width: '33px', height: '33px' }} />
+                  )}
+                  </td>
                 </tr>
-              );
+                );
             })}
           </tbody>
         </table>

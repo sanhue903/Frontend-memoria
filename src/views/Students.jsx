@@ -2,14 +2,17 @@ import React from 'react'
 import '../css/Students.css'
 import StudentsTable from '../components/StudentsTable'
 import StudentsGraphic from '../components/StudentsGraphic'
-import Logout from '../components/Logout'
+import NavBar from '../components/NavBar'
+import StudentsGraphic2 from '../components/StudentsGraphic2'
 
 function Students() {
   return (
     <div>
-      <Logout />
-      <h1>Estudiantes</h1>
-      <StudentsGraphic />
+      <NavBar />
+      <div className="charts-container">
+        <StudentsGraphic />
+        <StudentsGraphic2 />
+      </div>
       <StudentsTable />
     </div>
   )

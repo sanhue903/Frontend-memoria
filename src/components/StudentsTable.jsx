@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import config from '../config';
+import lupa from '../assets/images/lupa.png';
 
 function StudentsTable() {
   const token = localStorage.getItem('token');
@@ -9,6 +10,7 @@ function StudentsTable() {
   const [limit, setLimit] = useState(10);
   const [totalPages, setTotalPages] = useState(1);
   const [totalStudents, setTotalStudents] = useState(0);
+  const [chapters, setChapters] = useState([]);
 
   useEffect(() => {
     const fetchTotalStudents = () => {
@@ -74,6 +76,7 @@ function StudentsTable() {
             <tr>
               <th>Nombre</th>
               <th>Edad</th>
+              <th>Ultimo Capítulo</th>
               <th>Sesiones</th>
               <th>Ver</th>
             </tr>
@@ -83,9 +86,12 @@ function StudentsTable() {
               <tr key={index}>
                 <td>{student.name}</td>
                 <td>{student.age}</td>
+                <td>{student.last_chapter}</td>
                 <td>{student.session}</td>
                 <td> 
-                  <Link to={`/students/${student.id}/scores`}>Ver Scores</Link>
+                  <Link to={`/students/${student.id}/scores`}>
+                  <img src={lupa} alt="Ver Scores" style={{ width: '30px', height: '30px' }} />
+                  </Link>
                 </td>
               </tr>
             ))}
