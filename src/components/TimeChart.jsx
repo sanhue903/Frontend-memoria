@@ -56,7 +56,7 @@ const TimeChart = ({ scores, chapters, selectedChapter }) => {
 
       const processedTimeData = Object.keys(questionTotalCounts).map(questionLabel => ({
         question: questionLabel,
-        time: Math.round(questionTime[questionLabel] / questionTotalCounts[questionLabel])
+        time: questionTime[questionLabel] / questionTotalCounts[questionLabel]
       }));
 
       setTimeData(processedTimeData);
@@ -80,7 +80,7 @@ const TimeChart = ({ scores, chapters, selectedChapter }) => {
 
       const processedAllTimeData = Object.keys(allQuestionTotalCounts).map(questionLabel => ({
         question: questionLabel,
-        time: Math.round(allQuestionTime[questionLabel] / allQuestionTotalCounts[questionLabel])
+        time: allQuestionTime[questionLabel] / allQuestionTotalCounts[questionLabel]
       }));
 
       setAllTimeData(processedAllTimeData);
@@ -120,7 +120,7 @@ const TimeChart = ({ scores, chapters, selectedChapter }) => {
     plugins: {
       tooltip: {
         callbacks: {
-          label: (context) => `${context.dataset.label}: ${context.raw}`,
+          label: (context) => `${context.dataset.label}: ${context.raw.toFixed(2)}`,
         },
       },
       legend: {

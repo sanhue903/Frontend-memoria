@@ -32,7 +32,7 @@ function EachStudentTable({ scores, chapters }) {
                   <td>{chapterName}</td>
                   <td>{questionText}</td>
                   <td>{score.answer}</td>
-                  <td>{score.seconds}</td>
+                  <td>{score.seconds.toFixed(2)}</td>
                   <td>{score.attempt}</td>
                   <td>
                   {score.is_correct ? (
