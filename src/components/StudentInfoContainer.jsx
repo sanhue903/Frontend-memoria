@@ -31,12 +31,12 @@ function StudentInfoContainer({ studentId }) {
       <h3>Información del Estudiante</h3>
       <div className='studentInfoContainer'>
       <div className='column'>
-        <p>Nombre: ${student.name}</p>
-        <p>Edad: ${student.age}</p>
+        <p>Nombre: {student.name}</p>
+        <p>Edad: {student.age}</p>
       </div>
       <div className='column'>
-        <p>Último Capítulo: ${student.last_chapter}</p>
-        <p>Sesiones: ${student.session}</p>
+        <p>Último Capítulo: {student.last_chapter}</p>
+        <p>Sesiones: {student.session}</p>
       </div>
       </div>
     </div>
