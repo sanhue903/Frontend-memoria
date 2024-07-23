@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 function StudentInfoContainer({ studentId }) {
   const token = localStorage.getItem('token');
+  const [student, setStudent] = useState([]);
 
   useEffect(() => {
     const fetchStudentScores = async () => {
@@ -16,6 +17,7 @@ function StudentInfoContainer({ studentId }) {
         });
         const data = await response.json();
         console.log(data);
+        setStudent(data.student);
       } catch (error) {
         console.error('Error fetching student scores:', error);
       }
