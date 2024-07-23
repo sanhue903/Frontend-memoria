@@ -58,23 +58,28 @@ const AttemptsChart = ({ scores, chapters, selectedChapter }) => {
   };
 
   const chartOptions = {
-    scales: {
-      y: {
-        beginAtZero: true,
+  scales: {
+    y: {
+      beginAtZero: true,
+      min: 10, // Mínimo de 10 en el eje Y
+      ticks: {
+        stepSize: 1, // Asegura que solo se muestren enteros
       },
     },
-    plugins: {
-      tooltip: {
-        callbacks: {
-          label: (context) => `${context.dataset.label}: ${context.raw}`,
-        },
-      },
-      legend: {
-        display: true,
-        position: 'top',
+  },
+  plugins: {
+    tooltip: {
+      callbacks: {
+        label: (context) => `${context.dataset.label}: ${context.raw}`,
       },
     },
-  };
+    legend: {
+      display: true,
+      position: 'top',
+    },
+  },
+};
+
 
   return (
     <div className='chart-container'>
