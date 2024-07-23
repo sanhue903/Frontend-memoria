@@ -61,7 +61,6 @@ const AttemptsChart = ({ scores, chapters, selectedChapter }) => {
   scales: {
     y: {
       beginAtZero: true,
-      min: 10, // Mínimo de 10 en el eje Y
       ticks: {
         stepSize: 1, // Asegura que solo se muestren enteros
       },
