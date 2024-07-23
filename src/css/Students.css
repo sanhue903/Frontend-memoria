@@ -2,8 +2,6 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    display: flex;
-    justify-content: center;
 }
 
 h1 {
@@ -53,43 +51,49 @@ h3 {
     justify-content: center;
 }
 
-.chaptersBar{
+.chart-container{
     display: flex;
-    flex-direction: row;
-    justify-content:space-between;
-    border-radius: 10px;
-    margin-bottom: 2rem;
-    width: 80%;
-    margin: auto;
+    flex-direction: column;
+    align-items: center;
 }
 
-.chaptersBar button{
-    margin: 1rem;
-    padding: 0.5rem;
-    border-radius: 5px;
-    background-color: #8884d8;
-    border: none;
+.charts-container{
+    display: flex;
+    justify-content: space-around;
+    padding: 0 8rem;
+}
+
+.chaptersDropdown select {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.logout {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    margin-right: 0.5rem;
+    margin-top: 0.3rem;
     cursor: pointer;
-    font-size: medium;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    font-size: small;
 }
 
-.chaptersBar button:hover{
-    background-color: #6661fb;
-    transition: background-color 0.4s ease;
-}
-
-.custom-legend{
-    display: flex;
+.studentInfoContainer{
+    background-color: #fff;
+    width: 60%;
+    height: 200px;
     margin: auto;
-    justify-content: space-evenly;
-    width: 40%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    justify-content: space-between;
+    display: flex;
+    padding: 10px;
 }
 
-.graphic{
+.column{
+    padding: 100px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    margin-bottom: 3rem;
+    align-items: center;
 }

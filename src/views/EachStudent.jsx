@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import '../css/Students.css';
-import EachStudentsGraphics from '../components/EachStudentsGraphics';
-import EachStudentTable from '../components/EachStudentTable';
-import Logout from '../components/Logout';
+import TimeChart from '../components/TimeChart';
+import AttemptsChart from '../components/AttemptsChart';
 import config from '../config';
+import NavBar from '../components/NavBar';
+import StudentInfoContainer from '../components/StudentInfoContainer';
+import EachStudentTable from '../components/EachStudentTable';
 
-function EachStudent() {
+const EachStudent = () => {
   const token = localStorage.getItem('token');
   const { studentId } = useParams();
   const [scores, setScores] = useState([]);
   const [studentName, setStudentName] = useState('');
   const [chapters, setChapters] = useState([]);
+  const [chapter, setChapter] = useState('');
 
   useEffect(() => {
     const fetchStudentScores = async () => {
@@ -44,12 +47,15 @@ function EachStudent() {
         });
         const data = await response.json();
         setChapters(data.chapters);
+        if (data.chapters.length > 0) {
+          setChapter(data.chapters[0].name);
+        }
       } catch (error) {
         console.error('Error fetching chapters:', error);
         setChapters([]);
       }
     };
-
+  
     fetchChapters();
   }, [token]);
 
@@ -78,16 +84,32 @@ function EachStudent() {
 
     fetchStudentName();
   }, [studentId, token]);
+    
 
+  const handleChapterChange = (event) => {
+    setChapter(event.target.value);
+  };
 
   return (
-    <div>
-      <Logout />
-      <h1>{studentName}</h1>
-      <EachStudentsGraphics scores={scores} chapters={chapters} />
+    <div style={{ textAlign: 'center' }}>
+      <NavBar />
+      <StudentInfoContainer studentId={studentId} />
+      <div className='charts-container'>
+        <TimeChart scores={scores} chapters={chapters} selectedChapter={chapter} />
+        <AttemptsChart scores={scores} chapters={chapters} selectedChapter={chapter} />
+      </div>
+      <div style={{ marginTop: '2rem' }}>
+        <select value={chapter} onChange={handleChapterChange}>
+          {chapters.map(chap => (
+            <option key={chap.id} value={chap.name}>
+              {chap.name}
+            </option>
+          ))}
+        </select>
+      </div>
       <EachStudentTable scores={scores} chapters={chapters} />
     </div>
   );
-}
+};
 
 export default EachStudent;

@@ -8,16 +8,7 @@ function Logout() {
     };
 
     return (
-        <div style={{ position: 'absolute', top: 0, left: 0 }}>
-            <style>{`
-                img {
-                    width: 40px;
-                    height: 40px;
-                    margin: 10px;
-                    cursor: pointer;
-                }
-            `}</style>
-
+        <div className='logout'>
             <img src={logoutImage} alt="Logout" onClick={logout} />
         </div>
     );
