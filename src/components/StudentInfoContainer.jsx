@@ -16,7 +16,6 @@ function StudentInfoContainer({ studentId }) {
         });
         const data = await response.json();
         console.log(data);
-        return data.student;
       } catch (error) {
         console.error('Error fetching student scores:', error);
       }
