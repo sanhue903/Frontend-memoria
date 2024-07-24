@@ -4,6 +4,10 @@ import { useEffect, useState } from 'react';
 
 function StudentInfoContainer({ studentId }) {
   const token = localStorage.getItem('token');
+  const [studentName, setStudentName] = useState();
+  const [studentAge, setStudentAge] = useState();
+  const [lastChapter, setLastChapter] = useState();
+  const [sessions, setSessions] = useState();
 
   useEffect(() => {
     const fetchStudentScores = async () => {
@@ -15,7 +19,10 @@ function StudentInfoContainer({ studentId }) {
           }
         });
         const data = await response.json();
-        console.log(data);
+        setStudentName(data.student.name);
+        setStudentAge(data.student.age);
+        setLastChapter(data.student.last_chapter);
+        setSessions(data.student.session);
       } catch (error) {
         console.error('Error fetching student scores:', error);
       }
@@ -29,12 +36,12 @@ function StudentInfoContainer({ studentId }) {
       <h3>Información del Estudiante</h3>
       <div className='studentInfoContainer'>
       <div className='column'>
-        <p>Nombre:</p>
-        <p>Edad:</p>
+        <p>Nombre: {studentName}</p>
+        <p>Edad: {studentAge}</p>
       </div>
       <div className='column'>
-        <p>Último Capítulo:</p>
-        <p>Sesiones:</p>
+        <p>Último Capítulo: {lastChapter}</p>
+        <p>Sesiones: {sessions}</p>
       </div>
       </div>
     </div>

@@ -81,17 +81,17 @@ h3 {
 .studentInfoContainer{
     background-color: #fff;
     width: 60%;
-    height: 200px;
+    height: 150px;
     margin: auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    justify-content: space-between;
+    justify-content: center;
     display: flex;
     padding: 10px;
 }
 
 .column{
-    padding: 100px;
+    padding: 0 9rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

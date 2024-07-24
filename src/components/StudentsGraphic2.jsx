@@ -78,7 +78,7 @@ const StudentsGraphic2 = () => {
 
     return (
         <div>
-            <h3>Student Chapter Progress</h3>
+            <h3>Progreso por Capítulos</h3>
             <div className='chart-container'>
               <Pie data={chartData} />
             </div>
